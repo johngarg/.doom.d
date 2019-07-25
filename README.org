@@ -1,3 +1,18 @@
 #+TITLE:   Personal emacs config
 
-My doom emacs config
+My personal emacs configuration.
+
+#+BEGIN_EXAMPLE
+.doom.d
+├── +bindings.el    -> Custom key bindings
+├── +functions.el   -> Useful (sometimes interactive) functions
+├── +org.el         -> Org mode
+├── +theming.el     -> Themes
+├── +typesetting.el -> Fonts, ligatures etc.
+├── README.org
+├── config.el
+├── gcal.el         -> Add this with your google calendar info
+├── init.el
+├── packages.el
+└── snippets/
+#+END_EXAMPLE
