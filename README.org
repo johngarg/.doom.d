@@ -1,0 +1,3 @@
+#+TITLE:   Personal emacs config
+
+My doom emacs config
