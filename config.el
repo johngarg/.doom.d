@@ -38,8 +38,7 @@
 (add-to-mode 'wolfram-mode '("\.m$" "\.wl$" "\.fr$" "\.mod$"))
 (setq wolfram-program "/Applications/Mathematica.app/Contents/MacOS/MathKernel")
 (setq wolfram-path "/Applications/Mathematica.app/Contents/AddOns/Applications")
-
-(require 'ox-ipynb)
+(setq wolfram-indent 2)
 
 (setq ispell-program-name "/usr/local/bin/aspell")
 
@@ -54,3 +53,6 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
+
+;; clojure
+(setq cider-show-error-buffer 'only-in-repl)

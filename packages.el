@@ -1,13 +1,10 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/.doom.d/packages.el
 
-;; feeds
-(package! elfeed)
-
 ;; org
 (package! org-gcal)
 (package! ox-twbs)
-(package! ox-ipynb :recipe (:fetcher github :repo "jkitchin/ox-ipynb"))
+(package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
 
 ;; Python
 (package! anaconda-mode)
@@ -27,6 +24,9 @@
 
 ;; path
 (package! exec-path-from-shell)
+
+;; clojure
+;; (package! flycheck-clj-kondo)
 
 ;;; Examples
 ;; (package! auto-highlight-symbol)
