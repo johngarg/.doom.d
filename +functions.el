@@ -41,3 +41,10 @@
   "Insert string for today's date nicely formatted."
   (interactive)
   (insert (today)))
+
+(defun ipython-send-and-eval-buffer ()
+  "Opens an ipython repl and sends contents of current buffer."
+  (interactive)
+  (let ((file (buffer-file-name (current-buffer))))
+    (+python/open-ipython-repl)
+    (python-shell-send-file file)))

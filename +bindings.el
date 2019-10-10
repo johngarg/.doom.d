@@ -32,6 +32,13 @@
       "t" (lambda! (open-dir-in-term *terminal*)))
 (map! :leader :prefix "/"
       "c" 'evil-ex-nohighlight)
+(map! :leader :prefix "/"
+      "w" 'wordnut-lookup-current-word)
+
+(map! :map python-mode-map
+      :localleader
+      :n "r" #'+python/open-ipython-repl
+      :n "R" #'ipython-send-and-eval-buffer)
 
 ;; org insert items and headings
 (map! :map org-mode-map

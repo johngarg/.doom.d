@@ -12,6 +12,7 @@
 
 ;; Python
 (setq python-shell-interpreter *python*)
+(setq python-shell-prompt-detect-failure-warning nil)
 (custom-set-variables
  '(flycheck-python-flake8-executable *python*)
  '(flycheck-python-pycompile-executable *python*)
@@ -27,7 +28,7 @@
    ;; (python-docstring-mode)
    ;; (add-hook 'before-save-hook 'pyimport-remove-unused)
    ;; (add-hook 'before-save-hook 'importmagic-fix-imports)
-   (add-hook 'before-save-hook 'py-isort-before-save)
+   ;; (add-hook 'before-save-hook 'py-isort-before-save)
    (add-hook 'before-save-hook 'blacken-buffer)
    (set (make-local-variable 'compile-command)
         (concat *python* " " (buffer-name)))))
