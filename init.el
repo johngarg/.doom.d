@@ -43,7 +43,7 @@
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        snippets          ; my elves. They type so I don't have to
-       fold              ; (nigh) universal code folding
+       ;; fold              ; (nigh) universal code folding
        (format +onsave)  ; automated prettiness
        ;; lispy             ; vim for lisp, for people who dont like vim
        ;; multiple-cursors  ; editing in many places at once
@@ -56,7 +56,7 @@
         ;; +icons           ; colorful icons for dired-mode
         )
        electric          ; smarter, keyword-based electric-indent
-       imenu             ; an imenu sidebar and searchable code index
+       ;; imenu             ; an imenu sidebar and searchable code index
        ;; term              ; terminals in Emacs
        vc                ; version-control and Emacs, sitting in a tree
 
@@ -100,7 +100,7 @@
        ;; elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        ;; ess               ; emacs speaks statistics
-       go                ; the hipster dialect
+       ;; go                ; the hipster dialect
        ;; (haskell +intero) ; a language that's lazier than I am
        haskell
        ;; hy                ; readability of scheme w/ speed of python
@@ -108,7 +108,7 @@
        ;; (java +meghanada) ; the poster child for carpal tunnel syndrome
        ;; javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;; julia             ; a better, faster MATLAB
-       latex             ; writing papers in Emacs has never been so fun
+       ;; latex             ; writing papers in Emacs has never been so fun
        ;; ledger            ; an accounting system in Emacs
        ;; lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
@@ -150,9 +150,9 @@
        ;; irc               ; how neckbeards socialize
        ;; (rss +org)        ; emacs as an RSS reader
        ;; twitter           ; twitter client https://twitter.com/vnought
-       ;; (write            ; emacs as a word processor (latex + org + markdown)
-       ;; +wordnut         ; wordnet (wn) search
-       ;; +langtool)       ; a proofreader (grammar/style check) for Emacs
+       (write            ; emacs as a word processor (latex + org + markdown)
+        +wordnut         ; wordnet (wn) search
+        +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :collab
        ;; floobits          ; peer programming for a price

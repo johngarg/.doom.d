@@ -57,3 +57,7 @@
 
 ;; clojure
 (setq cider-show-error-buffer 'only-in-repl)
+
+;; langtool
+(setq langtool-bin "/usr/local/bin/languagetool")
+(setq langtool-default-language "en-AU")
