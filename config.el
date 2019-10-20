@@ -41,7 +41,9 @@
 (setq wolfram-path "/Applications/Mathematica.app/Contents/AddOns/Applications")
 (setq wolfram-indent 2)
 
+;; spelling
 (setq ispell-program-name "/usr/local/bin/aspell")
+(setq ispell-dictionary "en_AU")
 
 ;; work around for slow ivy switch buffer
 ;; place in ~/.doom.d/config.el
@@ -60,4 +62,8 @@
 
 ;; langtool
 (setq langtool-bin "/usr/local/bin/languagetool")
-(setq langtool-default-language "en-AU")
+(setq langtool-default-language "en-GB")
+
+;; latex
+(setq +format-on-save-enabled-modes
+      (append +format-on-save-enabled-modes '(latex-mode)))

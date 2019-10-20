@@ -4,13 +4,12 @@
       :leader :prefix "t"
       "t" (lambda! (toggle-doom-theme *themes*)))
 
-;; Emacs muscle memory functions
+;; Emacs muscle memory functions for insert mode
 (map!
- :nvi "C-n" 'evil-next-line
- :nvi "C-p" 'evil-previous-line
- :nvi "C-f" 'forward-char
- :nvi "C-b" 'backward-char
- :nvi "M-S-y" 'evil-past-pop-next)
+ :i "C-n" 'evil-next-line
+ :i "C-p" 'evil-previous-line
+ :i "C-f" 'forward-char
+ :i "C-b" 'backward-char)
 
 ;; distraction-free editing
 (defvar my-zen-map (make-sparse-keymap)
