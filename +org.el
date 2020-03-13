@@ -20,7 +20,7 @@
               (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)")
               (sequence "QUESTION(q)" "|" "ANSWERED(a@/!)")
               (sequence "PROBLEM(p)" "|" "SOLVED(s@/!)")
-              (sequence "SOMEDAY(o)" "TODO(t)"))))
+              (sequence "SOMEDAY(o)"))))
 
   ;; have `t' mark todos
   (setq evil-org-key-theme '(textobjects navigation additional insert todo))
@@ -46,18 +46,18 @@
       (backquote (("t" "todo" entry (file ,org-capture-file)
                    "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
 
-                  ("e" "event" entry (file ,org-gcal-file)
-                   "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+                  ;; ("e" "event" entry (file ,org-gcal-file)
+                  ;;  "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
 
                   ("r" "respond" entry (file ,org-capture-file)
                    "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n"
                    :clock-in t :clock-resume t :immediate-finish t)
 
-                  ("d" "my day" plain (file ,daily-orgfile)
-                   ,(concat "#+TITLE: My day\n#+DATE: "
-                            (today)
-                            "\n\n* Tasks\n** TODO \n\n* Thoughts")
-                   :clock-in t :clock-resume t)
+                  ;; ("d" "my day" plain (file ,daily-orgfile)
+                  ;;  ,(concat "#+TITLE: My day\n#+DATE: "
+                  ;;           (today)
+                  ;;           "\n\n* Tasks\n** TODO \n\n* Thoughts")
+                  ;;  :clock-in t :clock-resume t)
 
                   ("n" "note" entry (file ,org-capture-file)
                    "* %? :NOTE:\n%U\n%a\n"
@@ -67,27 +67,6 @@
                    "* MEETING with %? :MEETING:\n%U"
                    :clock-in t :clock-resume t))))
 
-;; Tags
-(setq org-tag-alist
-      (quote ((:startgroup)
-              ("@uni" . ?u)
-              ("@home" . ?H)
-              (:endgroup)
-              ("WAITING" . ?w)
-              ("HOLD" . ?h)
-              ("PERSONAL" . ?P)
-              ("SIDE" . ?s)
-              ("SEMINAR" . ?S)
-              ("WORK" . ?W)
-              ("ULTRAVIOLET" . ?U)
-              ("QUARKGLUON" . ?Q)
-              ("DEMO" . ?D)
-              ("REFILE" . ?R)
-              ("TUTORING" . ?T)
-              ("PRODUCTIVITY" . ?p)
-              ("SOMEDAY" . ?o)
-              ("CANCELLED" . ?c)
-              ("FLAGGED" . ??))))
 
 ;; Allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
@@ -102,6 +81,7 @@
 
 (setq org-gcal-file-alist
       (backquote (("johngargalionis@gmail.com" . ,org-gcal-file))))
+
 (org-gcal-fetch)                        ; fetch google calendar events into org-agenda
 
 ;; allow whitespace after headings

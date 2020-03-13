@@ -2,7 +2,7 @@
 ;; Copy me to ~/.doom.d/init.el or ~/.config/doom/init.el, then edit me!
 
 ;; disable flycheck by default
-(def-package-hook! flycheck
+(use-package-hook! flycheck
   :pre-config
   (global-flycheck-mode -1))
 
@@ -69,8 +69,6 @@
        ;; docker
        ;; editorconfig      ; let someone else argue about tabs vs spaces
        ;; ein               ; tame Jupyter notebooks with emacs
-       flycheck          ; tasing you for every semicolon you forget
-       flyspell          ; tasing you for misspelling mispelling
        ;; gist              ; interacting with github gists
        ;; lsp
        macos             ; MacOS-specific commands
@@ -82,7 +80,7 @@
        ;; rgb               ; creating color strings
        ;; terraform         ; infrastructure as code
        ;; tmux              ; an API for interacting with tmux
-       ;; upload            ; map local to remote projects via ssh/ftp
+       upload            ; map local to remote projects via ssh/ftp
        ;; wakatime
        ;; vterm             ; another terminals in Emacs
 
@@ -103,7 +101,7 @@
        ;; go                ; the hipster dialect
        ;; (haskell +intero) ; a language that's lazier than I am
        haskell
-       ;; hy                ; readability of scheme w/ speed of python
+       hy                ; readability of scheme w/ speed of python
        ;; idris             ;
        ;; (java +meghanada) ; the poster child for carpal tunnel syndrome
        ;; javascript        ; all(hope(abandon(ye(who(enter(here))))))
@@ -130,7 +128,7 @@
        racket            ; a DSL for DSLs
        ;; rest              ; Emacs as a REST client
        ;; ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       ;; rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;; scala             ; java, but good
        (sh +fish)        ; she sells (ba|z|fi)sh shells on the C xor
        ;; solidity          ; do you need a blockchain? No.
@@ -150,13 +148,18 @@
        ;; irc               ; how neckbeards socialize
        ;; (rss +org)        ; emacs as an RSS reader
        ;; twitter           ; twitter client https://twitter.com/vnought
-       (write            ; emacs as a word processor (latex + org + markdown)
-        +wordnut         ; wordnet (wn) search
-        +langtool)       ; a proofreader (grammar/style check) for Emacs
+       ;; (write            ; emacs as a word processor (latex + org + markdown)
+       ;;  +wordnut         ; wordnet (wn) search
+       ;;  +langtool)       ; a proofreader (grammar/style check) for Emacs
+       calendar
 
        :collab
        ;; floobits          ; peer programming for a price
        ;; impatient-mode    ; show off code over HTTP
+
+       :checkers
+       syntax          ; tasing you for every semicolon you forget
+       spell          ; tasing you for misspelling mispelling
 
        :config
        ;; For literate config users. This will tangle+compile a config.org
