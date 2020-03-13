@@ -43,7 +43,7 @@
 
 ;; spelling
 (setq ispell-program-name "/usr/local/bin/aspell")
-(setq ispell-dictionary "en_AU")
+(setq ispell-dictionary "en_GB")
 
 ;; work around for slow ivy switch buffer
 ;; place in ~/.doom.d/config.el
@@ -67,3 +67,14 @@
 ;; latex
 (setq +format-on-save-enabled-modes
       (append +format-on-save-enabled-modes '(latex-mode)))
+
+;; scheme and racket
+(setq geiser-chez-binary "/usr/local/bin/chez")
+(setq geiser-racket-binary "/usr/local/bin/racket")
+(setq geiser-active-implementations '(chez))
+(add-to-list 'auto-mode-alist '("\\.scm\\'" . scheme-mode))
+(add-hook
+ 'scheme-mode-hook
+ 'geiser-mode)
+(setq geiser-mode-start-repl-p t)
+;; (require 'evil-cleverparens-text-objects)

@@ -2,7 +2,7 @@
 ;;; ~/.doom.d/packages.el
 
 ;; org
-(package! org-gcal)
+;; (package! org-gcal)
 (package! ox-twbs)
 (package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
 
@@ -25,8 +25,9 @@
 ;; path
 (package! exec-path-from-shell)
 
-;; clojure
+;; lisps
 ;; (package! flycheck-clj-kondo)
+(package! geiser)
 
 ;;; Examples
 ;; (package! auto-highlight-symbol)

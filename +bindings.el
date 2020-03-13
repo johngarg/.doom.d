@@ -19,6 +19,13 @@
       :leader
       :n "z" my-zen-map)
 
+(defvar my-lisp-map (make-sparse-keymap)
+  "Keymap for personalised lisp-related commands.")
+
+(map! :desc "lisp"
+      :leader
+      :n "k" my-lisp-map)
+
 (map! :map my-zen-map
       "z" 'writeroom-mode
       "h" #'writeroom-increase-width
@@ -38,6 +45,32 @@
       :localleader
       :n "r" #'+python/open-ipython-repl
       :n "R" #'ipython-send-and-eval-buffer)
+
+(map! :map racket-repl-mode-map
+      :n "C-w" nil
+      "C-w" nil)
+
+(map! :map my-lisp-map
+      :leader :prefix "k"
+      "h" #'beginning-of-defun
+      "k" (lambda! (sp-beginning-of-previous-sexp) (evil-backward-char))
+      "j" #'sp-next-sexp
+      "e" (lambda!
+           (evil-jump-item)
+           (evil-append 1)
+           (cond
+            ((eq major-mode 'emacs-lisp-mode) (eval-last-sexp nil))
+            ((eq major-mode 'racket-mode) (geiser-eval-last-sexp nil))
+            ((eq major-mode 'clojure-mode) (geiser-eval-last-sexp nil)))
+           (evil-normal-state)
+           (evil-jump-item))
+      "b" #'sp-forward-barf-sexp
+      "B" #'sp-backward-barf-sexp
+      "s" #'sp-forward-slurp-sexp
+      "S" #'sp-backward-slurp-sexp
+      "J" #'sp-join-sexp
+      "u" #'sp-backward-unwrap-sexp
+      "w" #'sp-wrap-round)
 
 ;; org insert items and headings
 (map! :map org-mode-map
