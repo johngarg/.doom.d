@@ -48,3 +48,10 @@
   (let ((file (buffer-file-name (current-buffer))))
     (+python/open-ipython-repl)
     (python-shell-send-file file)))
+
+(defun my-org-export-agenda (path)
+  "Writes agenda to path"
+  ;; (load-file "~/.doom.d/+org.el") ; update org-gcal first
+  (org-gcal-fetch)
+  (org-agenda-list 1 (org-today))
+  (org-agenda-write path))
