@@ -2,9 +2,10 @@
 ;;; ~/.doom.d/packages.el
 
 ;; org
-;; (package! org-gcal)
+(package! org-gcal)
+(package! org-ref)
 (package! ox-twbs)
-(package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
+(package! outline-magic)
 
 ;; Python
 (package! anaconda-mode)
@@ -22,12 +23,11 @@
 (package! writeroom-mode)
 (package! centered-cursor-mode)
 
+;; latex
+(package! latex-extra)
+
 ;; path
 (package! exec-path-from-shell)
-
-;; lisps
-;; (package! flycheck-clj-kondo)
-(package! geiser)
 
 ;;; Examples
 ;; (package! auto-highlight-symbol)
