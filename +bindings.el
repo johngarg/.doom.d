@@ -2,7 +2,7 @@
 
 (map! :desc "Toggle emacs theme"
       :leader :prefix "t"
-      "t" (lambda! (toggle-doom-theme *themes*)))
+      "t" (cmd! (toggle-doom-theme *themes*)))
 
 ;; Emacs muscle memory functions for insert mode
 (map!
@@ -34,12 +34,15 @@
       "f" 'focus-mode)
 
 (map! :leader "v" 'er/expand-region)
+
+;; my open commands
 (map! :leader :prefix "o"
-      "t" (lambda! (open-dir-in-term *terminal*)))
-(map! :leader :prefix "/"
-      "c" 'evil-ex-nohighlight)
-(map! :leader :prefix "/"
-      "w" 'wordnut-lookup-current-word)
+      "t" (cmd! (open-dir-in-term *terminal*)))
+(map! :leader :prefix "o"
+      "c" (cmd! (cfw:open-org-calendar)))
+
+(map! :leader "/" nil)
+(map! :leader :prefix "/" "c" 'evil-ex-nohighlight)
 
 (map! :map python-mode-map
       :localleader
@@ -53,9 +56,9 @@
 (map! :map my-lisp-map
       :leader :prefix "k"
       "h" #'beginning-of-defun
-      "k" (lambda! (sp-beginning-of-previous-sexp) (evil-backward-char))
+      "k" (cmd! (sp-beginning-of-previous-sexp) (evil-backward-char))
       "j" #'sp-next-sexp
-      "e" (lambda!
+      "e" (cmd!
            (evil-jump-item)
            (evil-append 1)
            (cond
@@ -76,7 +79,17 @@
 (map! :map org-mode-map
       :localleader
       :n "i" #'org-insert-item
-      :n "h" #'org-insert-heading)
+      :n "h" #'org-insert-heading
+      :prefix "L"
+      :n "e" #'LaTeX-environment
+      :n "m" #'my-export-to-latex-and-make
+      :n "i" #'org-ref-helm-insert-cite-link
+      :n "r" #'org-ref-helm-insert-ref-link)
+
+(map! :map LaTeX-mode-map
+      :localleader
+      :n "c" #'org-latex-preview
+      :n "h" #'latex/hide-show)
 
 (map! :desc "Toggle git gutter"
       :leader :prefix "t"

@@ -52,6 +52,12 @@
 (defun my-org-export-agenda (path)
   "Writes agenda to path"
   ;; (load-file "~/.doom.d/+org.el") ; update org-gcal first
-  (org-gcal-fetch)
+  ;; (org-gcal-fetch)
   (org-agenda-list 1 (org-today))
   (org-agenda-write path))
+
+(defun my-export-to-latex-and-make ()
+  (interactive)
+  "Exports org file to latex and calls make"
+  (org-latex-export-to-latex)
+  (+ivy/compile))

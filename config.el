@@ -2,13 +2,18 @@
 
 ;; constants
 (defconst *python* "python3")
-(defconst *terminal* "~/Applications/iTerm2.app")
+(defconst *terminal* "/Applications/iTerm2.app")
 
 (load! "+functions")
 (load! "+theming")                      ; defines datetime and theming info
 (load! "+typesetting")                  ; fonts and ligatures
 (load! "+bindings")
 (load! "+org")
+
+(setq default-directory "/Users/johngargalionis/")
+
+;; remove line numbers
+(setq display-line-numbers-type nil)
 
 ;; Python
 (setq python-shell-interpreter *python*)
@@ -78,3 +83,21 @@
  'geiser-mode)
 (setq geiser-mode-start-repl-p t)
 ;; (require 'evil-cleverparens-text-objects)
+
+;; change doom splash
+;; https://github.com/zaiste/.doom.d/issues/1
+(setq +doom-dashboard-banner-file "~/.doom.d/logo.png")
+
+;; latex
+(add-hook 'LaTeX-mode-hook #'outline-minor-mode)
+(eval-after-load 'outline
+  '(progn
+    (require 'outline-magic)
+    (define-key outline-minor-mode-map (kbd "<tab>") 'outline-cycle)))
+
+;; eshell
+ (setq eshell-prompt-function
+  (lambda nil
+    (concat
+     (eshell/pwd)
+     " 🍕 ")))

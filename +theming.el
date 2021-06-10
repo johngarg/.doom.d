@@ -19,3 +19,6 @@
 (defvar *theme* (cdr (assoc *theme-shade* *themes*)))
 
 (setq doom-theme *theme*)
+
+;; set background of pdf-tools' midnight mode to match doom theme colours
+(setq pdf-view-midnight-colors '("#2E3440" . "#2E3440" ))
