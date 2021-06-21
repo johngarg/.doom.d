@@ -4,8 +4,8 @@
 ;; org
 (package! org-gcal)
 (package! org-ref)
+(package! ox-latex-subfigure)
 (package! ox-twbs)
-(package! outline-magic)
 
 ;; Python
 (package! anaconda-mode)

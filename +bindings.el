@@ -86,6 +86,10 @@
       :n "i" #'org-ref-helm-insert-cite-link
       :n "r" #'org-ref-helm-insert-ref-link)
 
+(map! :map org-mode-map
+      :leader :prefix "t"
+      :n "e" #'my-org-toggle-emphasis)
+
 (map! :map LaTeX-mode-map
       :localleader
       :n "c" #'org-latex-preview
@@ -94,3 +98,7 @@
 (map! :desc "Toggle git gutter"
       :leader :prefix "t"
       "r" 'git-gutter:toggle)
+
+(map! :map cfw:calendar-mode-map
+      "a" #'cfw:org-open-agenda-day
+      "d" #'cfw:change-view-two-weeks)

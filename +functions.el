@@ -61,3 +61,9 @@
   "Exports org file to latex and calls make"
   (org-latex-export-to-latex)
   (+ivy/compile))
+
+(defun my-org-scale-latex-fragments (n)
+  (interactive "n")
+  (setq
+   org-format-latex-options
+   (plist-put org-format-latex-options :scale n)))

@@ -5,7 +5,8 @@
 (defvar *fontsize* 14)
 
 ;; (defvar *font* "Monaco")
-(defvar *font* "Roboto Mono Light")
+;; (defvar *font* "Roboto Mono Light")
+(defvar *font* "Iosevka")
 ;; (defvar *font* "Fira Code")
 (defconst *fonts*
   '((doom-unicode-font . "Fira Sans")

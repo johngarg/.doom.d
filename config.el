@@ -15,6 +15,9 @@
 ;; remove line numbers
 (setq display-line-numbers-type nil)
 
+;; dired
+(add-hook 'dired-mode-hook 'dired-hide-details-mode)
+
 ;; Python
 (setq python-shell-interpreter *python*)
 (setq python-shell-prompt-detect-failure-warning nil)
@@ -41,7 +44,7 @@
 ;; Mathematica (Wolfram Language)
 (autoload 'wolfram-mode "wolfram-mode" nil t)
 (autoload 'run-wolfram "wolfram-mode" nil t)
-(add-to-mode 'wolfram-mode '("\.m$" "\.wl$" "\.fr$" "\.mod$"))
+(add-to-mode 'wolfram-mode '("\.m$" "\.wl$" "\.fr$" "\.mod$" "\.wls$"))
 (setq wolfram-program "/Applications/Mathematica.app/Contents/MacOS/MathKernel")
 (setq wolfram-path "/Applications/Mathematica.app/Contents/AddOns/Applications")
 (setq wolfram-indent 2)
@@ -53,9 +56,6 @@
 ;; work around for slow ivy switch buffer
 ;; place in ~/.doom.d/config.el
 (remove-hook 'ivy-mode-hook #'ivy-rich-mode)
-
-;; disable smart-parens in org mode (fixes slow delete char and insert *)
-(add-hook 'org-mode-hook #'turn-off-smartparens-mode)
 
 ;; exec-path-from-shell config
 (when (memq window-system '(mac ns))
@@ -82,22 +82,7 @@
  'scheme-mode-hook
  'geiser-mode)
 (setq geiser-mode-start-repl-p t)
-;; (require 'evil-cleverparens-text-objects)
 
 ;; change doom splash
 ;; https://github.com/zaiste/.doom.d/issues/1
 (setq +doom-dashboard-banner-file "~/.doom.d/logo.png")
-
-;; latex
-(add-hook 'LaTeX-mode-hook #'outline-minor-mode)
-(eval-after-load 'outline
-  '(progn
-    (require 'outline-magic)
-    (define-key outline-minor-mode-map (kbd "<tab>") 'outline-cycle)))
-
-;; eshell
- (setq eshell-prompt-function
-  (lambda nil
-    (concat
-     (eshell/pwd)
-     " 🍕 ")))

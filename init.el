@@ -60,7 +60,7 @@
        (format +onsave)  ; automated prettiness
        ;; god               ; run Emacs commands without modifier keys
        ;; lispy             ; vim for lisp, for people who dont like vim
-       ;; multiple-cursors  ; editing in many places at once
+       multiple-cursors  ; editing in many places at once
        ;; objed             ; text object editing for the innocent
        ;; parinfer          ; turn lisp into python, sort of
        ;; rotate-text       ; cycle region at point between text candidates
@@ -82,7 +82,7 @@
        :checkers
        syntax              ; tasing you for every semicolon you forget
        spell             ; tasing you for misspelling mispelling
-       grammar           ; tasing grammar mistake every you make
+       ;; grammar           ; tasing grammar mistake every you make
 
        :os
        macos             ; MacOS-specific commands
@@ -162,12 +162,12 @@
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       ;;scheme            ; a fully conniving family of lisps
+       (scheme +chez)      ; a fully conniving family of lisps
        (sh +fish)          ; she sells {ba,z,fi}sh shells on the C xor
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       web               ; the tubes
+       ;; web              ; the tubes
 
        :email
        ;;(mu4e +gmail)
