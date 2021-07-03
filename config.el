@@ -86,3 +86,19 @@
 ;; change doom splash
 ;; https://github.com/zaiste/.doom.d/issues/1
 (setq +doom-dashboard-banner-file "~/.doom.d/logo.png")
+
+;; elfeed
+(after! elfeed
+  (setq elfeed-feeds
+        '(;; arxiv
+          ("http://arxiv.org/rss/hep-ph/" arxiv hep-ph)
+          ;; news
+          ("https://www.abc.net.au/news/feed/8057136/rss.xml" news)  ; melb
+          ("https://www.sbs.com.au/news/feed/" news)                 ; top stories
+          ("https://www.sbs.com.au/news/videos/feed/" news)          ; top videos
+          ("https://www.sbs.com.au/news/topic/latest/feed/" news)    ; latest
+          ("https://www.sbs.com.au/news/topic/australia/feed" news)  ; aus
+          ("https://www.sbs.com.au/news/topic/world/feed/" news)     ; world
+          ;; emacs
+          ("https://www.reddit.com/r/emacs.rss" emacs)
+          )))

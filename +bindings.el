@@ -37,7 +37,7 @@
 
 ;; my open commands
 (map! :leader :prefix "o"
-      "t" (cmd! (open-dir-in-term *terminal*)))
+      "i" (cmd! (open-dir-in-term *terminal*)))
 (map! :leader :prefix "o"
       "c" (cmd! (cfw:open-org-calendar)))
 
@@ -102,3 +102,14 @@
 (map! :map cfw:calendar-mode-map
       "a" #'cfw:org-open-agenda-day
       "d" #'cfw:change-view-two-weeks)
+
+(map! :map haskell-mode-map
+      :localleader
+      :n "r" #'+haskell/open-repl)
+
+(map! :map haskell-mode-map
+      :localleader
+      :n "r" #'+haskell/open-repl)
+
+(map! :map haskell-interactive-mode-map
+      :nvi "C-c C-r" #'haskell-process-restart)

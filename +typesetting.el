@@ -4,16 +4,17 @@
 (setq-default display-line-numbers-type 'relative)
 (defvar *fontsize* 14)
 
-;; (defvar *font* "Monaco")
-;; (defvar *font* "Roboto Mono Light")
-(defvar *font* "Iosevka")
-;; (defvar *font* "Fira Code")
+(defvar *font* "Iosevka SS07")
 (defconst *fonts*
-  '((doom-unicode-font . "Fira Sans")
-    (doom-variable-pitch-font . "DejaVu Sans Mono")
-    (doom-big-font . "Fira Code")))
+  `((doom-variable-pitch-font . ,*font*)
+    (doom-unicode-font . ,*font*)
+    (doom-big-font . ,*font*)))
 
-(setq doom-font (font-spec :family *font* :size *fontsize*)
-      doom-variable-pitch-font (font-spec :family *font*)
-      doom-unicode-font (font-spec :family (cdr (assoc 'doom-variable-pitch-font *fonts*)))
-      doom-big-font (font-spec :family (cdr (assoc 'doom-big-font *fonts*)) :size (+ 7 *fontsize*)))
+(setq doom-font
+      (font-spec :family *font* :size *fontsize*)
+
+      doom-variable-pitch-font
+      (font-spec :family (cdr (assoc 'doom-variable-pitch-font *fonts*)))
+
+      doom-unicode-font
+      (font-spec :family (cdr (assoc 'doom-unicode-font *fonts*))))

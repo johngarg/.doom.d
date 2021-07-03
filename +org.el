@@ -4,17 +4,35 @@
 
 (defconst org-directory "~/Dropbox/org/")
 (setq org-gcal-file (concat org-directory "google-calendar.org"))
-(setq org-capture-file (concat org-directory "refile.org"))
 
 ;; add custom workflow for meetings
 (after! org
-  (progn
+  (let ((refile-file (concat org-directory "refile.org")))
+
+    ;; agenda
+    (setq org-agenda-timegrid-use-ampm 1)
+
+    ;; allow whitespace after headings
+    (setq org-cycle-separator-lines 1)
+
+    ;; capture
+    (setq org-capture-file refile-file)
+    (setq org-default-notes-file refile-file)
+    (setq +org-capture-notes-file refile-file)
+    (setq +org-capture-todo-file refile-file)
+    (setq +org-capture-projects-file refile-file)
+    (setq +org-capture-changelog-file refile-file)
+    (setq org-refile-targets
+          '((nil :maxlevel . 5)
+            (org-agenda-files :maxlevel . 5)))
+
+    ;; todo workflow
     (setq org-todo-keywords
           (append
            org-todo-keywords
-           '((sequence "MEETING(m)" "TUTE(u)" "TOPAY(a)" "|" "PAID(P)" "CANCELLED(c)"))))
+           '((sequence "MEET(m)" "TUTE(u)" "DEBT(b)" "|" "PAID(P)" "CANC(c)"))))
     (setq org-todo-keyword-faces
-          (append org-todo-keyword-faces '(("TOPAY" . +org-todo-active))))))
+          (append org-todo-keyword-faces '(("DEBT" . +org-todo-active))))))
 
 ;; disable smart-parens in org mode (fixes slow delete char and insert *)
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
@@ -28,12 +46,6 @@
               (format-time-string "%Y%m" (current-time))
               ".org_archive::"))
 
-;; org capture
-(setq org-default-notes-file org-capture-file)
-(setq org-refile-targets
-      '((nil :maxlevel . 5)
-        (org-agenda-files :maxlevel . 5)))
-
 ;; google calendar
 ;; information imported from gcal.el
 (setq org-gcal-client-id *gcal-client-id*
@@ -43,9 +55,6 @@
       (backquote (("johngargalionis@gmail.com" . ,org-gcal-file))))
 
 ;; (org-gcal-fetch) ; fetch google calendar events into org-agenda
-
-;; allow whitespace after headings
-(setq org-cycle-separator-lines 1)
 
 ;; place tags after headings with only one space in between
 (setq org-tags-column 0)
