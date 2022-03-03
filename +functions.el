@@ -67,3 +67,9 @@
   (setq
    org-format-latex-options
    (plist-put org-format-latex-options :scale n)))
+
+(defun my-force-kill-buffer ()
+  (interactive)
+  (with-current-buffer (read-string "Buffer to kill: ")
+    (let (kill-buffer-hook kill-buffer-query-functions)
+      (kill-buffer))))

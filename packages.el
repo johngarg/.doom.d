@@ -29,6 +29,9 @@
 ;; path
 (package! exec-path-from-shell)
 
+;; unfill-paragraph
+(package! unfill)
+
 ;;; Examples
 ;; (package! auto-highlight-symbol)
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
