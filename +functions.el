@@ -73,3 +73,33 @@
   (with-current-buffer (read-string "Buffer to kill: ")
     (let (kill-buffer-hook kill-buffer-query-functions)
       (kill-buffer))))
+
+(defun clerk-show ()
+  (interactive)
+  (save-buffer)
+  (let
+      ((filename
+        (buffer-file-name)))
+    (when filename
+      (cider-interactive-eval
+       (concat "(nextjournal.clerk/show! \"" filename "\")")))))
+
+(defun clerk-browse ()
+  (interactive)
+  (save-buffer)
+  (let
+      ((filename
+        (buffer-file-name)))
+    (when filename
+      (cider-interactive-eval
+       (concat "(nextjournal.clerk/serve! {:browse? true})")))))
+
+(defun show-buffer-file-name ()
+  "Show the full path to the current file in the minibuffer."
+  (interactive)
+  (let ((file-name (buffer-file-name)))
+    (if file-name
+        (progn
+          (message file-name)
+          (kill-new file-name))
+      (error "Buffer not visiting a file"))))

@@ -113,3 +113,18 @@
 
 (map! :map haskell-interactive-mode-map
       :nvi "C-c C-r" #'haskell-process-restart)
+
+(map! :map clojure-mode-map
+      :localleader
+      :n "s" #'clerk-show
+      :n "b" #'clerk-browse)
+
+;; Denote
+(map! :leader :prefix "d"
+      :n "d" #'denote
+      :n "i" #'denote-link ; insert
+      :n "I" #'denote-link-add-links
+      :n "l" #'denote-link-find-file ; list links
+      :n "b" #'denote-link-backlinks
+      :n "r" #'denote-dired-rename-file
+      )

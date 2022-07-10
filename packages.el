@@ -7,6 +7,10 @@
 (package! ox-latex-subfigure)
 (package! ox-twbs)
 
+;; note taking
+(package! denote
+          :recipe (:repo "protesilaos/denote" :host github :files ("*.el")))
+
 ;; Python
 (package! anaconda-mode)
 (package! blacken)

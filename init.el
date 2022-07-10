@@ -167,7 +167,8 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;; web              ; the tubes
+       ;;web               ; the tubes
+       yaml
 
        :email
        ;;(mu4e +gmail)
@@ -178,7 +179,7 @@
        calendar
        everywhere
        ;;irc               ; how neckbeards socialize
-       rss                 ; emacs as an RSS reader
+       ;; rss                 ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config

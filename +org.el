@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
 (load! "gcal")
+(load! "ob-mathematica")
 
 (defconst org-directory "~/Dropbox/org/")
 (setq org-gcal-file (concat org-directory "google-calendar.org"))
@@ -39,6 +40,19 @@
 
 ;; org babel
 (setq org-babel-python-command *python*)
+
+;; Load mathematica from contrib
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ (append org-babel-load-languages
+         '((mathematica . t))))
+
+;; Sanitize output and deal with paths
+(setq org-babel-mathematica-command "/Users/johngargalionis/.local/bin/mash")
+;; Font-locking
+(add-to-list 'org-src-lang-modes '("mathematica" . wolfram))
+;; For wolfram-mode
+(setq mathematica-command-line "/Users/johngargalionis/.local/bin/mash")
 
 ;; archive directory
 (setq org-archive-location
