@@ -5,6 +5,7 @@
 
 (defconst org-directory "~/Dropbox/org/")
 (setq org-gcal-file (concat org-directory "google-calendar.org"))
+;; (setq org-mac-link-mail-account "johngargalionis@gmail.com")
 
 ;; add custom workflow for meetings
 (after! org
@@ -108,7 +109,7 @@
 ;;     ("+" nil)))
 
 ;; subfigure
-(require 'ox-latex-subfigure)
+;; (require 'ox-latex-subfigure)
 
 ;; remove holidays from cfw calendar
 (setq cfw:display-calendar-holidays nil)
@@ -126,3 +127,6 @@
 (defun my-org-clear-latex-preview-cache ()
   (interactive)
   (shell-command "rm -f ~/.emacs.d/.local/cache/org-latex/*"))
+
+(setq org-reverse-note-order t)
+(setq org-ellipsis " ↓")

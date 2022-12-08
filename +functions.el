@@ -103,3 +103,25 @@
           (message file-name)
           (kill-new file-name))
       (error "Buffer not visiting a file"))))
+
+(defun +notmuch/search-archive ()
+  (interactive)
+  (notmuch-search-add-tag '("+archive" "-inbox" "-unread"))
+  (notmuch-tree-next-message))
+
+(defun +notmuch/search-flag ()
+  (interactive)
+  (notmuch-search-add-tag '("+flagged"))
+  (notmuch-tree-next-message))
+
+(defun +notmuch/search-unflag ()
+  (interactive)
+  (notmuch-search-remove-tag '("-flagged"))
+  (notmuch-tree-next-message))
+
+(defun safe-mail-send-and-exit ()
+  (interactive)
+  (message-mode)
+  (if (string-equal (read-from-minibuffer "Really send? ") "yes")
+      (send-mail-and-exit)
+    (message "Not sent!")))

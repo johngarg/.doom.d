@@ -2,14 +2,16 @@
 ;;; ~/.doom.d/packages.el
 
 ;; org
-(package! org-gcal)
+;; (package! org-gcal)
 (package! org-ref)
-(package! ox-latex-subfigure)
+(package! org-mime)
+;; (package! ox-latex-subfigure)
 (package! ox-twbs)
 
 ;; note taking
-(package! denote
-          :recipe (:repo "protesilaos/denote" :host github :files ("*.el")))
+(package!
+  denote
+  :recipe (:repo "protesilaos/denote" :host github :files ("*.el")))
 
 ;; Python
 (package! anaconda-mode)
@@ -26,6 +28,7 @@
 (package! focus)
 (package! writeroom-mode)
 (package! centered-cursor-mode)
+;; (package! olivetti)
 
 ;; latex
 (package! latex-extra)
@@ -35,6 +38,16 @@
 
 ;; unfill-paragraph
 (package! unfill)
+
+;; prot's themes
+(package! modus-themes)
+;; (package! ef-themes)
+
+;; mac
+(package! applescript-mode)
+
+;; google translate
+(package! google-translate)
 
 ;;; Examples
 ;; (package! auto-highlight-symbol)

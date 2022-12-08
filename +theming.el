@@ -9,8 +9,8 @@
 (defconst *hour* (string-to-number (car (split-string *time* ":"))))
 (defconst *eveningp* (or (>= *hour* (+ 6 12)) (< *hour* 7)))
 
-(defvar *dark-theme* 'doom-nord)
-(defvar *light-theme* 'doom-one-light)
+(defvar *dark-theme* 'doom-tomorrow-night)
+(defvar *light-theme* 'doom-tomorrow-day)
 (defvar *theme-shade* (if *eveningp* "dark" "light"))
 
 (defconst *themes*

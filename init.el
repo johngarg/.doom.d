@@ -14,29 +14,25 @@
 ;;      Alternatively, press 'gd' (or 'C-c g d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
-;; disable flycheck by default
-(use-package-hook! flycheck
-  :pre-config
-  (global-flycheck-mode -1))
-
 (doom! :input
        ;; chinese
        ;; japanese
 
        :completion
-       company             ; the ultimate code completion backend
+       (company +childframe) ; the ultimate code completion backend
        ;; helm             ; the *other* search engine for love and life
        ;; ido              ; the other *other* search engine...
-       ivy                 ; a search engine for love and life
+       ;; ivy              ; a search engine for love and life
+       vertico             ; a search engine for love and life
 
        :ui
        ;; deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
-       doom-quit         ; DOOM quit-message prompts when you quit Emacs
+       ;; doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;; fill-column       ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE tags
-       hydra
+       ;; hydra
        ;; indent-guides     ; highlighted indent columns
        modeline          ; snazzy, Atom-inspired modeline, plus API
        nav-flash         ; blink the current line after jumping
@@ -47,9 +43,9 @@
        ;; tabs              ; an tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
-       vc-gutter         ; vcs diff in the fringe
+       (vc-gutter +pretty)         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
-       window-select     ; visually switch windows
+       ;; window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
        zen               ; distraction-free coding or writing
 
@@ -60,7 +56,7 @@
        (format +onsave)  ; automated prettiness
        ;; god               ; run Emacs commands without modifier keys
        ;; lispy             ; vim for lisp, for people who dont like vim
-       multiple-cursors  ; editing in many places at once
+       ;; multiple-cursors  ; editing in many places at once
        ;; objed             ; text object editing for the innocent
        ;; parinfer          ; turn lisp into python, sort of
        ;; rotate-text       ; cycle region at point between text candidates
@@ -71,6 +67,7 @@
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
+       undo              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -81,7 +78,7 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       spell             ; tasing you for misspelling mispelling
+       (spell +flyspell)    ; tasing you for misspelling mispelling
        ;; grammar           ; tasing grammar mistake every you make
 
        :os
@@ -106,7 +103,7 @@
        ;;rgb               ; creating color strings
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       upload            ; map local to remote projects via ssh/ftp
+       ;;upload            ; map local to remote projects via ssh/ftp
 
        :lang
        ;;agda              ; types of types of types of types...
@@ -128,7 +125,7 @@
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;go                ; the hipster dialect
        haskell             ; a language that's lazier than I am
-       hy                ; readability of scheme w/ speed of python
+       ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
@@ -172,7 +169,7 @@
 
        :email
        ;;(mu4e +gmail)
-       ;;notmuch
+       (notmuch +org +afew)
        ;;(wanderlust +gmail)
 
        :app

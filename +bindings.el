@@ -4,6 +4,13 @@
       :leader :prefix "t"
       "t" (cmd! (toggle-doom-theme *themes*)))
 
+;; fix grep behaviour
+(map! :leader :prefix "s"
+      "p" 'consult-grep)
+
+(map! :n "C-s-h" 'ns-do-hide-emacs
+      :n "M-s-h" 'ns-do-hide-others)
+
 ;; Emacs muscle memory functions for insert mode
 (map!
  :i "C-n" 'evil-next-line
@@ -127,4 +134,30 @@
       :n "l" #'denote-link-find-file ; list links
       :n "b" #'denote-link-backlinks
       :n "r" #'denote-dired-rename-file
+      :n "o" (cmd! (dired denote-directory)))
+
+(map! :leader :prefix "M"
+      :n "m" (cmd! (notmuch-search "tag:inbox"))
+      :n "c" #'+notmuch/compose
+      :n "u" #'+notmuch/update
+      :n "j" #'notmuch-jump-search)
+
+(map! :map notmuch-search-mode-map
+      :localleader
+      :n "a" #'+notmuch/search-archive
+      :n "f" #'+notmuch/search-flag
+      :n "F" #'+notmuch/search-unflag
       )
+
+(map! :map message-mode-map
+      ;; "C-c C-c" #'safe-mail-send-and-exit
+      ;; "C-c C-s" #'safe-mail-send-and-exit
+      :localleader
+      :n "s" #'message-goto-subject
+      :n "m" #'message-goto-body
+      :n "b" #'message-goto-bcc
+      :n "c" #'message-goto-cc
+      :n "t" #'message-goto-to
+      :n "f" #'message-goto-from)
+
+(map! :leader :n "T" #'google-translate-smooth-translate)

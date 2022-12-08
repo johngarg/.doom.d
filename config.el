@@ -93,3 +93,50 @@
       '("one-loop-b-anomalies" "jets" "bviolation" "ps-proton-decay" "uv-models"))
 (setq denote-infer-keywords t)
 (setq denote-sort-keywords t)
+(add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
+
+;; Email
+
+
+(after! notmuch
+
+  (setq +notmuch-sync-backend 'offlineimap)
+  (setq notmuch-always-prompt-for-sender t)
+
+  (setq mail-specify-envelope-from t)
+  (setq message-sendmail-envelope-from 'header)
+  (setq mail-envelope-from 'header)
+
+  (setq sendmail-program "/usr/local/bin/msmtp")
+  (setq send-mail-function #'sendmail-send-it)
+
+  (setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox" :key "i")
+                                 (:name "flagged" :query "tag:flagged" :key "f")
+                                 (:name "archive" :query "tag:archive" :key "a")
+                                 (:name "sent" :query "tag:sent" :key "s")
+                                 (:name "work" :query "tag:work" :key "w")
+                                 (:name "meeting" :query "tag:meeting" :key "m")
+                                 (:name "trash" :query "tag:trash" :key "t")))
+
+  (setq notmuch-show-log nil
+        notmuch-hello-sections `(notmuch-hello-insert-saved-searches
+                                 notmuch-hello-insert-alltags))
+
+  (setq notmuch-fcc-dirs
+      '(("johgar@uv.es" . "johgar@uv.es/INBOX.Sent -unread -new +sent +uv +work")
+        ("johngarg@ific.uv.es" . "johngarg@ific.uv.es/sent-mail -unread -new +sent +ific +work")
+        ("johngargalionis@gmail.com" . "gmail-local-sent -unread -new +sent +gmail")
+        (".*" . "fallback-sent"))))
+
+(after! org-mime
+  (setq org-mime-export-options '(:section-numbers nil :with-author nil :with-toc nil)))
+
+(setq message-signature-file "~/.mailsignature")
+(setq message-fill-column nil)
+
+(add-to-list '+doom-dashboard-menu-sections
+             '("Open mail"
+               :icon (all-the-icons-octicon "mail" :face 'doom-dashboard-menu-title)
+               :when (featurep! :email notmuch +afew)
+               :face (:inherit (doom-dashboard-menu-title bold))
+               :action notmuch-jump-search))
