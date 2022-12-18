@@ -1,6 +1,6 @@
 ;;; ~/.doom.d/+typesetting.el -*- lexical-binding: t; -*-
 
-(setq-default line-spacing 5)
+;; (setq-default line-spacing 5)
 (setq-default display-line-numbers-type 'relative)
 (defvar *fontsize* 14)
 

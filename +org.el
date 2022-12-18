@@ -130,3 +130,44 @@
 
 (setq org-reverse-note-order t)
 (setq org-ellipsis " ↓")
+
+;; Agenda
+(setq org-agenda-tags-column 5)
+(setq org-agenda-custom-commands
+      '(("D" "John's agenda"
+         ((tags-todo "*"
+                ((org-agenda-overriding-header "📬 Important unscheduled tasks\n")
+                 (org-agenda-skip-function
+                  `(org-agenda-skip-entry-if
+                    'notregexp ,(format "\\[#%s\\]" (char-to-string org-priority-highest))))
+                 ))
+          (agenda ""
+                  ((org-agenda-block-separator nil)
+                   (org-agenda-start-day "0d")
+                   (org-agenda-span 1)
+                   (org-agenda-day-face-function (lambda (date) 'org-agenda-date))
+                   (org-deadline-warning-days 0)
+                   (org-agenda-overriding-header "\n\n🗓 Today\n")))
+          (agenda ""
+                  ((org-agenda-block-separator nil)
+                   (org-agenda-start-on-weekday nil)
+                   (org-agenda-start-day "+1d")
+                   (org-agenda-block-separator nil)
+                   (org-agenda-span 3)
+                   (org-agenda-day-face-function (lambda (date) 'org-agenda-date))
+                   (org-deadline-warning-days 0)
+                   (org-agenda-overriding-header "\n\n👀 Next three days\n")))
+          (agenda ""
+                  ((org-agenda-time-grid nil)
+                   (org-agenda-start-on-weekday nil)
+                   (org-agenda-start-day "+3d")
+                   (org-agenda-span 14)
+                   (org-agenda-show-all-dates nil)
+                   (org-agenda-time-grid nil)
+                   (org-deadline-warning-days 0)
+                   (org-agenda-block-separator nil)
+                   (org-agenda-entry-types '(:deadline :sexp :scheduled))
+                   (org-agenda-skip-function `(org-agenda-skip-entry-if 'todo 'done))
+                   (org-agenda-overriding-header "\n\n🚀 Next two weeks\n")))
+          ))
+        ))

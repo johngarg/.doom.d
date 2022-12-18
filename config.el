@@ -120,13 +120,15 @@
 
   (setq notmuch-show-log nil
         notmuch-hello-sections `(notmuch-hello-insert-saved-searches
+                                 notmuch-hello-insert-recent-searches
                                  notmuch-hello-insert-alltags))
 
   (setq notmuch-fcc-dirs
       '(("johgar@uv.es" . "johgar@uv.es/INBOX.Sent -unread -new +sent +uv +work")
         ("johngarg@ific.uv.es" . "johngarg@ific.uv.es/sent-mail -unread -new +sent +ific +work")
-        ("johngargalionis@gmail.com" . "gmail-local-sent -unread -new +sent +gmail")
-        (".*" . "fallback-sent"))))
+        ;; ("johngargalionis@gmail.com" . "gmail-local-sent -unread -new +sent +gmail")
+        )))
+
 
 (after! org-mime
   (setq org-mime-export-options '(:section-numbers nil :with-author nil :with-toc nil)))
@@ -140,3 +142,5 @@
                :when (featurep! :email notmuch +afew)
                :face (:inherit (doom-dashboard-menu-title bold))
                :action notmuch-jump-search))
+
+(setq load-prefer-newer t)

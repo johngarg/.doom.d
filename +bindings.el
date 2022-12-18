@@ -4,6 +4,10 @@
       :leader :prefix "t"
       "t" (cmd! (toggle-doom-theme *themes*)))
 
+(map! :desc "Toggle global org-modern"
+      :leader :prefix "t"
+      "m" 'global-org-modern-mode)
+
 ;; fix grep behaviour
 (map! :leader :prefix "s"
       "p" 'consult-grep)
@@ -150,14 +154,15 @@
       )
 
 (map! :map message-mode-map
-      ;; "C-c C-c" #'safe-mail-send-and-exit
-      ;; "C-c C-s" #'safe-mail-send-and-exit
+      "C-c C-s" #'safe-mail-send-and-exit
+      "C-c C-c" #'safe-mail-send-and-exit
       :localleader
       :n "s" #'message-goto-subject
       :n "m" #'message-goto-body
       :n "b" #'message-goto-bcc
       :n "c" #'message-goto-cc
       :n "t" #'message-goto-to
-      :n "f" #'message-goto-from)
+      :n "f" #'message-goto-from
+      :n "S" #'safe-mail-send-and-exit)
 
 (map! :leader :n "T" #'google-translate-smooth-translate)

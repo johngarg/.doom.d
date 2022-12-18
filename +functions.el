@@ -123,5 +123,5 @@
   (interactive)
   (message-mode)
   (if (string-equal (read-from-minibuffer "Really send? ") "yes")
-      (send-mail-and-exit)
+      (notmuch-mua-send-and-exit)
     (message "Not sent!")))
