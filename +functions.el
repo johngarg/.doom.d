@@ -125,3 +125,8 @@
   (if (string-equal (read-from-minibuffer "Really send? ") "yes")
       (notmuch-mua-send-and-exit)
     (message "Not sent!")))
+
+(defun toggle-dired-denote-fontification ()
+  (interactive)
+  (diredfl-mode -1)
+  (denote-dired-mode 1))

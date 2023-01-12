@@ -7,7 +7,6 @@
 (package! org-mime)
 ;; (package! ox-latex-subfigure)
 (package! ox-twbs)
-(package! org-modern)
 
 ;; note taking
 (package!

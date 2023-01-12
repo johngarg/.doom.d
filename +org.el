@@ -34,7 +34,8 @@
            org-todo-keywords
            '((sequence "MEET(m)" "TUTE(u)" "DEBT(b)" "|" "PAID(P)" "CANC(c)"))))
     (setq org-todo-keyword-faces
-          (append org-todo-keyword-faces '(("DEBT" . +org-todo-active))))))
+          (append org-todo-keyword-faces '(("DEBT" . +org-todo-active)))))
+
 
 ;; disable smart-parens in org mode (fixes slow delete char and insert *)
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
@@ -132,7 +133,7 @@
 (setq org-ellipsis " ↓")
 
 ;; Agenda
-(setq org-agenda-tags-column 5)
+(setq org-agenda-tags-column 0)
 (setq org-agenda-custom-commands
       '(("D" "John's agenda"
          ((tags-todo "*"
@@ -160,7 +161,7 @@
           (agenda ""
                   ((org-agenda-time-grid nil)
                    (org-agenda-start-on-weekday nil)
-                   (org-agenda-start-day "+3d")
+                   (org-agenda-start-day "+4d")
                    (org-agenda-span 14)
                    (org-agenda-show-all-dates nil)
                    (org-agenda-time-grid nil)
@@ -171,3 +172,4 @@
                    (org-agenda-overriding-header "\n\n🚀 Next two weeks\n")))
           ))
         ))
+)

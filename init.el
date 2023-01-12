@@ -22,8 +22,8 @@
        (company +childframe) ; the ultimate code completion backend
        ;; helm             ; the *other* search engine for love and life
        ;; ido              ; the other *other* search engine...
-       (ivy +childframe +fuzzy +prescient)   ; a search engine for love and life
-       ;; vertico             ; a search engine for love and life
+       ;; (ivy +childframe +fuzzy +prescient)   ; a search engine for love and life
+       vertico             ; a search engine for love and life
 
        :ui
        ;; deft              ; notational velocity for Emacs
@@ -141,11 +141,11 @@
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org              ; organize your plain life in plain text
+        +pomodoro        ; be fruitful with the tomato technique
         +dragndrop)       ; drag & drop files/images into org buffers
         ;;+hugo            ; use Emacs for hugo blogging
         ;;+jupyter        ; ipython/jupyter support for babel
         ;;+pandoc          ; export-with-pandoc support
-        ;;+pomodoro        ; be fruitful with the tomato technique
         ;;+present        ; using org-mode for presentations
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother

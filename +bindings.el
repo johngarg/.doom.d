@@ -166,3 +166,7 @@
       :n "S" #'safe-mail-send-and-exit)
 
 (map! :leader :n "T" #'google-translate-smooth-translate)
+
+(map! :map dired-mode-map
+      :localleader
+      :n "d" #'toggle-dired-denote-fontification)
